@@ -16,7 +16,7 @@ import os
 
 import cv2
 import torch
-from flatbuffers.builder import np
+import numpy as np
 from torch import nn
 
 import config
