@@ -1,4 +1,5 @@
 import argparse
+from pathlib import Path
 import model
 import torch
 import os
@@ -22,7 +23,8 @@ if __name__ == '__main__':
     sr_model = load_state_dict(sr_model, args.model_weights_path)
     sr_model.eval()
 
-    model_path = os.path.splitext(args.model_weights_path)[0] + '.onnx'
+    model_path = Path(args.model_weights_path).with_suffix('')
+    model_path = os.path.join(model_path.parent, model_path.stem + '.onnx')
 
     dummy_input = torch.randn(1, 1, 224, 224).to(device)
     torch.onnx.export(
