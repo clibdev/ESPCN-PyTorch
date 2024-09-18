@@ -36,7 +36,7 @@ def load_state_dict(
         load_mode: str = "pretrained",
 ) -> tuple[Module, Module, Any, Any, Any, Optimizer | None, Any] | tuple[Module, Any, Any, Any, Optimizer | None, Any] | Module:
     # Load model weights
-    checkpoint = torch.load(model_weights_path, map_location=lambda storage, loc: storage)
+    checkpoint = torch.load(model_weights_path, map_location=lambda storage, loc: storage, weights_only=True)
 
     if load_mode == "resume":
         # Restore the parameters in the training node to this point
