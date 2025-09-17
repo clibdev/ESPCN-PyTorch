@@ -82,7 +82,7 @@ def main(args):
 
     sr_ycbcr_image = cv2.merge([sr_y_image[:, :, 0], bic_cb_image, bic_cr_image])
     sr_image = imgproc.ycbcr_to_bgr(sr_ycbcr_image)
-    cv2.imwrite(args.output_path, sr_image * 255.0)
+    cv2.imwrite(args.output_path, np.clip(sr_image * 255.0, 0, 255).round().astype(np.uint8))
 
     print(f"SR image save to `{args.output_path}`")
 

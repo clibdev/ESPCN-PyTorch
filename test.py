@@ -84,7 +84,7 @@ def main() -> None:
         sr_y_image = sr_y_image.astype(np.float32) / 255.0
         sr_ycbcr_image = cv2.merge([sr_y_image, gt_cb_image, gt_cr_image])
         sr_image = imgproc.ycbcr_to_bgr(sr_ycbcr_image)
-        cv2.imwrite(sr_image_path, sr_image * 255.0)
+        cv2.imwrite(sr_image_path, np.clip(sr_image * 255.0, 0, 255).round().astype(np.uint8))
 
         # Cal IQA metrics
         psnr_metrics += psnr(sr_y_tensor, gt_y_tensor).item()

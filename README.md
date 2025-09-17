@@ -2,13 +2,14 @@
 
 Differences between original repository and fork:
 
-* Compatibility with PyTorch >=2.4. (🔥)
+* Compatibility with PyTorch >=2.8. (🔥)
 * Original pretrained models and converted ONNX models from GitHub [releases page](https://github.com/clibdev/ESPCN-PyTorch/releases). (🔥)
 * Model conversion to ONNX format using the [export.py](export.py) file. (🔥)
 * Installation with updated [requirements.txt](requirements.txt) file.
-* The following deprecations and errors has been fixed:
+* The following deprecations, warnings and errors has been fixed:
   * FutureWarning: You are using 'torch.load' with 'weights_only=False'.
   * AttributeError: 'Namespace' object has no attribute 'gt_image_size'.
+  * WARN imwrite_ Unsupported depth image for selected encoder is fallbacked to CV_8U.
 
 # Installation
 
