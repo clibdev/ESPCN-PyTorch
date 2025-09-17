@@ -6,8 +6,9 @@ Differences between original repository and fork:
 * Original pretrained models and converted ONNX models from GitHub [releases page](https://github.com/clibdev/ESPCN-PyTorch/releases). (🔥)
 * Model conversion to ONNX format using the [export.py](export.py) file. (🔥)
 * Installation with updated [requirements.txt](requirements.txt) file.
-* The following deprecations has been fixed:
+* The following deprecations and errors has been fixed:
   * FutureWarning: You are using 'torch.load' with 'weights_only=False'.
+  * AttributeError: 'Namespace' object has no attribute 'gt_image_size'.
 
 # Installation
 
