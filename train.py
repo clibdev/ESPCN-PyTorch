@@ -17,7 +17,7 @@ import time
 import torch
 from torch import nn
 from torch import optim
-from torch.cuda import amp
+from torch import amp
 from torch.optim import lr_scheduler
 from torch.utils.data import DataLoader
 from torch.utils.tensorboard import SummaryWriter
@@ -80,7 +80,7 @@ def main():
     writer = SummaryWriter(os.path.join("samples", "logs", config.exp_name))
 
     # Initialize the gradient scaler
-    scaler = amp.GradScaler()
+    scaler = amp.GradScaler('cuda')
 
     # Create an IQA evaluation model
     psnr_model = PSNR(config.upscale_factor, config.only_test_y_channel)
@@ -235,7 +235,7 @@ def train(
         espcn_model.zero_grad(set_to_none=True)
 
         # Mixed precision training
-        with amp.autocast():
+        with amp.autocast('cuda'):
             sr = espcn_model(lr)
             loss = torch.mul(config.loss_weights, criterion(sr, gt))
 
@@ -300,7 +300,7 @@ def validate(
             lr = batch_data["lr"].to(device=config.device, non_blocking=True)
 
             # Use the generator model to generate a fake sample
-            with amp.autocast():
+            with amp.autocast('cuda'):
                 sr = espcn_model(lr)
 
             # Statistical loss value for terminal data output

@@ -8,6 +8,7 @@ Differences between original repository and fork:
 * Installation with updated [requirements.txt](requirements.txt) file.
 * The following deprecations, warnings and errors has been fixed:
   * FutureWarning: You are using 'torch.load' with 'weights_only=False'.
+  * FutureWarning: 'torch.cuda.amp.GradScaler(args...)' is deprecated.
   * AttributeError: 'Namespace' object has no attribute 'gt_image_size'.
   * WARN imwrite_ Unsupported depth image for selected encoder is fallbacked to CV_8U.
 
