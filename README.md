@@ -2,7 +2,7 @@
 
 Differences between original repository and fork:
 
-* Compatibility with PyTorch >=2.8. (🔥)
+* Compatibility with PyTorch >=2.9. (🔥)
 * Original pretrained models and converted ONNX models from GitHub [releases page](https://github.com/clibdev/ESPCN-PyTorch/releases). (🔥)
 * Model conversion to ONNX format using the [export.py](export.py) file. (🔥)
 * Installation with updated [requirements.txt](requirements.txt) file.
